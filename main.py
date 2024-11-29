@@ -1,7 +1,9 @@
 
-from fastapi import Depends, FastAPI
-from auth.admin_auth import TokenData, create_unlimited_access_token, verify_token
+from fastapi import FastAPI
+from auth.admin_auth import create_unlimited_access_token
 from routers import url_scan_router
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI(
     title="Dragons Of Eden API",
@@ -14,6 +16,15 @@ app = FastAPI(
         "url": "https://discord.com/invite/M5WVpvfW3G",
     },
     license_info={}
+)
+
+# Apply CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Replace "*" with specific origins for production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 @app.get('/')
