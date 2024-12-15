@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from google.cloud import bigquery
 from google.oauth2 import service_account
 import logging
+import datetime
 
 # Import for token auth
 from auth.admin_auth import verify_token
@@ -139,3 +140,11 @@ async def scan_with_features(features: ModelFeatures, token_data: dict = Depends
         raise HTTPException(status_code=500, detail=f"An error occurred while scanning the URL: {str(e)}")
 
     return results
+
+@router.post('/news_date')
+async def scan_url():
+    """
+    return the news timestamp
+    """
+
+    return 1734238800
