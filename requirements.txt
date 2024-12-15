@@ -1,7 +1,7 @@
 python-dotenv==1.0.0
 pymongo==4.6.3
 fastapi==0.112.2
-uvicorn==0.13.1
+uvicorn==0.32.0
 PyJWT==2.8.0
 pydantic==2.8.2
 tldextract==5.1.3
