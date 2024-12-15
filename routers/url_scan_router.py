@@ -141,7 +141,7 @@ async def scan_with_features(features: ModelFeatures, token_data: dict = Depends
 
     return results
 
-@router.post('/news_date')
+@router.get('/news_date')
 async def scan_url():
     """
     return the news timestamp
